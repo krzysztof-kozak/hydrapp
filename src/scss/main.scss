@@ -1,5 +1,51 @@
 @import "~normalize.css";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 
 html {
   background: #3767ad;
+  font-family: "Roboto", sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-around;
+
+  &__header {
+    color: #fff;
+    font-weight: 500;
+    font-size: 55px;
+    line-height: 64px;
+  }
+}
+
+.water {
+  opacity: 0;
+  transform-origin: center 100%;
+  &:hover {
+    animation: water-fill 1.5s forwards;
+  }
+}
+
+@keyframes water-fill {
+  0% {
+    opacity: 0;
+    transform: scale(1, 0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+
+  75% {
+    opacity: 0.8;
+    transform: scale(1, 0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
 }
