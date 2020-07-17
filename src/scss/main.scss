@@ -13,8 +13,30 @@
   }
 
   75% {
-    opacity: 0.8;
-    transform: scale(1, 0.8);
+    opacity: 0.9;
+    transform: scale(1, 0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes water-drain {
+  0% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(1, 0.4);
+  }
+
+  75% {
+    opacity: 0.9;
+    transform: scale(1, 0.9);
   }
 
   100% {
@@ -82,9 +104,13 @@ html {
 }
 
 .water {
-  opacity: 0;
+  opacity: 1;
   transform-origin: center 100%;
-  &:hover {
+  &--animated-fill {
     animation: water-fill 1.5s forwards;
+  }
+
+  &--animated-drain {
+    animation: water-drain 1.5s backwards;
   }
 }
