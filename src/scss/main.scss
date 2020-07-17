@@ -1,5 +1,5 @@
 @import "~normalize.css";
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500;900&display=swap");
 
 @keyframes water-fill {
   0% {
@@ -69,6 +69,60 @@
   }
 }
 
+@keyframes glass-appear {
+  from {
+    transform: translateX(-100vw);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes top-button-appear {
+  from {
+    transform: translateX(-100vw);
+  }
+
+  to {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes bottom-button-appear {
+  from {
+    transform: translateX(100vw);
+  }
+
+  to {
+    transform: translateX(-100vw);
+  }
+}
+
+@keyframes counter-appear {
+  from {
+    transform: translateX(100vw);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    font-size: 36px;
+    letter-spacing: 36px;
+  }
+
+  to {
+    opacity: 1;
+    font-size: 64px;
+    letter-spacing: normal;
+  }
+}
+
 html {
   background: #3767ad;
   font-family: "Roboto", sans-serif;
@@ -78,14 +132,17 @@ html {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  justify-content: space-around;
 
   &__header {
     color: #fff;
+    opacity: 0;
     font-weight: 500;
-    font-size: 55px;
+    font-size: 36px;
     line-height: 64px;
     margin: 64px 0;
+    letter-spacing: 36px;
+    text-shadow: 2px 3px 2px #0085ffdb;
+    animation: fade-in 2s 1.5s ease-out forwards;
   }
 
   &__counter {
@@ -93,6 +150,7 @@ html {
     font-weight: 500;
     font-size: 7em;
     margin: 0;
+    animation: counter-appear 0.5s linear forwards;
     top: 300px;
     &--animated {
       animation: rotate 1s;
@@ -103,24 +161,42 @@ html {
     font-size: 18px;
     width: 150px;
     padding: 4px 0;
-    border: 2px outset rgb(0, 0, 0);
+    border: 3px outset #fff;
+    border-bottom: 1px outset transparent;
     border-radius: 4px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.74);
-    border-radius: 4px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.51);
     margin-top: 15px;
+    position: relative;
+    outline: none;
+
+    &:nth-of-type(1) {
+      left: -100vw;
+      animation: top-button-appear 0.5s 0.7s linear forwards;
+    }
+    &:nth-of-type(2) {
+      left: 100vw;
+      animation: bottom-button-appear 0.5s 0.9s linear forwards;
+    }
     &:active {
       box-shadow: none;
-      border: 1px outset rgba(0, 0, 0, 0.74);
+      border: 2px outset rgba(0, 0, 0, 0.74);
+    }
+    &:focus {
+      color: green;
+      font-weight: 900;
     }
   }
 }
 
 .glass {
   margin-bottom: 36px;
+  animation: glass-appear 0.5s forwards;
+  transform: translateX(-100vw);
 }
 
 .water {
   opacity: 1;
+
   transform-origin: center 100%;
   &--animated-fill {
     animation: water-fill 1.5s forwards;
