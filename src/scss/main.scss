@@ -23,6 +23,18 @@
   }
 }
 
+@keyframes rotate {
+  from {
+    transform: rotatey(0deg);
+    opacity: 0.2;
+  }
+
+  to {
+    transform: rotatey(-720deg);
+    opacity: 1;
+  }
+}
+
 html {
   background: #3767ad;
   font-family: "Roboto", sans-serif;
@@ -48,6 +60,9 @@ html {
     font-size: 7em;
     margin: 0;
     top: 300px;
+    &--animated {
+      animation: rotate 1s;
+    }
   }
 
   &__button {

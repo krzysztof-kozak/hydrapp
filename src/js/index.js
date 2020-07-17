@@ -27,6 +27,9 @@ const modifyCounter = (operation) => {
     glassCounter = 0;
   }
   counter.innerHTML = glassCounter;
+  counter.classList.remove("app__counter--animated");
+  void counter.offsetWidth;
+  counter.classList.add("app__counter--animated");
   localStorage.setItem(key, glassCounter);
 };
 
