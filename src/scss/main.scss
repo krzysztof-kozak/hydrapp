@@ -42,6 +42,14 @@ html {
     margin: 64px 0;
   }
 
+  &__counter {
+    position: absolute;
+    font-weight: 500;
+    font-size: 7em;
+    margin: 0;
+    top: 300px;
+  }
+
   &__button {
     font-size: 18px;
     width: 150px;
