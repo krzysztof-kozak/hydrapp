@@ -7,8 +7,8 @@ registerSW();
 const counter = document.querySelector(".app__counter--js");
 const addGlass = document.querySelector(".add-button-js");
 const removeGlass = document.querySelector(".remove-button-js");
-const water = document.querySelector(".water");
-const preload = document.querySelector(".preload");
+const water = document.querySelector(".water--js");
+const menu = document.querySelector(".app__button--menu--js")
 
 const key = new Date().toISOString().slice(0, 10);
 counter.innerHTML = localStorage.getItem(key);
