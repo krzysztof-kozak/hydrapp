@@ -10,12 +10,13 @@ const removeGlass = document.querySelector(".remove-button-js");
 const water = document.querySelector(".water");
 
 const key = new Date().toISOString().slice(0, 10);
-let glassCounter = 0;
 counter.innerHTML = localStorage.getItem(key);
 
 if (!localStorage.getItem(key)) {
   localStorage.setItem(key, 0);
 }
+
+let glassCounter = parseInt(localStorage.getItem(key));
 
 if (glassCounter === 0) {
   console.log(localStorage.getItem(key));
@@ -25,14 +26,21 @@ if (glassCounter === 0) {
 const modifyCounter = (operation) => {
   if (operation === "add") {
     glassCounter++;
+    water.classList.remove("water--animated-drain-full");
     counter.classList.remove("app__counter--animated");
     water.classList.remove("water--animated-fill");
+    water.classList.remove("water--animated-drain");
     void counter.offsetWidth;
     void water.offsetWidth;
     counter.classList.add("app__counter--animated");
     water.classList.add("water--animated-fill");
-  } else if (operation === "add" && glassCounter > 0) {
+  } else if (operation === "remove" && glassCounter === 1) {
     glassCounter--;
+    counter.classList.add("app__counter--animated");
+    water.classList.add("water--animated-drain-full");
+  } else if (operation === "remove" && glassCounter > 0) {
+    glassCounter--;
+    water.classList.remove("water--animated-drain-full");
     counter.classList.remove("app__counter--animated");
     water.classList.remove("water--animated-drain");
     void counter.offsetWidth;
