@@ -177,11 +177,15 @@ html {
     align-items: center;
     max-width: 760px;
     margin: 0 auto;
+  }
+
+  .hidden {
     display: none;
   }
 
   .modal {
-    margin: 0 1em;
+    margin: 3em 1em;
+
     &__title {
       text-align: center;
       line-height: 36px;
@@ -205,7 +209,7 @@ html {
     width: 80px;
     position: absolute;
     top: 0;
-    right: 0;
+    right: 10px;
   }
 
   &__header {
