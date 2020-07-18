@@ -10,25 +10,24 @@ const removeGlass = document.querySelector('.remove-button-js');
 const water = document.querySelector('.water--js');
 const menu = document.querySelector('.menu__button--js');
 const navigation = document.querySelector('.navigation--js');
+const navigationList = document.querySelectorAll('.navigation__item--js');
+
+navigationList.forEach((element) => {
+  element.addEventListener('click', () => {
+    navigation.classList.toggle('navigation-open');
+    if (element.getAttribute('data-link') === 'learn-more') {
+      appScreen.classList.toggle('hidden');
+      closeModal.classList.toggle('hidden');
+      infoModal.classList.toggle('hidden');
+    }
+  });
+});
 
 menu.addEventListener('click', () => navigation.classList.toggle('navigation-open'));
 
-// const menu = document.querySelector(".app__button--menu--js");
-// const appScreen = document.querySelector(".content-wrapper--js");
-// const infoModal = document.querySelector(".modal--js");
-// const closeModal = document.querySelector(".close-button--js");
-
-// menu.addEventListener('click', () => {
-//   appScreen.classList.toggle('hidden');
-//   closeModal.classList.toggle('hidden');
-//   infoModal.classList.toggle('hidden');
-// });
-
-closeModal.addEventListener('click', () => {
-  appScreen.classList.toggle('hidden');
-  closeModal.classList.toggle('hidden');
-  infoModal.classList.toggle('hidden');
-});
+const appScreen = document.querySelector('.content-wrapper--js');
+const infoModal = document.querySelector('.modal--js');
+const closeModal = document.querySelector('.close-button--js');
 
 const key = new Date().toISOString().slice(0, 10);
 counter.innerHTML = localStorage.getItem(key);
