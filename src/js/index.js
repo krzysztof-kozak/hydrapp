@@ -1,28 +1,33 @@
-import "../scss/main.scss";
+import '../scss/main.scss';
 
 // Enabling PWA:
-import { registerSW } from "./pwa.js";
+import { registerSW } from './pwa.js';
 registerSW();
 
-const counter = document.querySelector(".app__counter--js");
-const addGlass = document.querySelector(".add-button-js");
-const removeGlass = document.querySelector(".remove-button-js");
-const water = document.querySelector(".water--js");
-const menu = document.querySelector(".app__button--menu--js");
-const appScreen = document.querySelector(".content-wrapper--js");
-const infoModal = document.querySelector(".modal--js");
-const closeModal = document.querySelector(".close-button--js");
+const counter = document.querySelector('.app__counter--js');
+const addGlass = document.querySelector('.add-button-js');
+const removeGlass = document.querySelector('.remove-button-js');
+const water = document.querySelector('.water--js');
+const menu = document.querySelector('.menu__button--js');
+const navigation = document.querySelector('.navigation--js');
 
-menu.addEventListener("click", () => {
-  appScreen.classList.toggle("hidden");
-  closeModal.classList.toggle("hidden");
-  infoModal.classList.toggle("hidden");
-});
+menu.addEventListener('click', () => navigation.classList.toggle('navigation-open'));
 
-closeModal.addEventListener("click", () => {
-  appScreen.classList.toggle("hidden");
-  closeModal.classList.toggle("hidden");
-  infoModal.classList.toggle("hidden");
+// const menu = document.querySelector(".app__button--menu--js");
+// const appScreen = document.querySelector(".content-wrapper--js");
+// const infoModal = document.querySelector(".modal--js");
+// const closeModal = document.querySelector(".close-button--js");
+
+// menu.addEventListener('click', () => {
+//   appScreen.classList.toggle('hidden');
+//   closeModal.classList.toggle('hidden');
+//   infoModal.classList.toggle('hidden');
+// });
+
+closeModal.addEventListener('click', () => {
+  appScreen.classList.toggle('hidden');
+  closeModal.classList.toggle('hidden');
+  infoModal.classList.toggle('hidden');
 });
 
 const key = new Date().toISOString().slice(0, 10);
@@ -40,34 +45,34 @@ if (glassCounter === 0) {
 }
 
 const modifyCounter = (operation) => {
-  if (operation === "add") {
+  if (operation === 'add') {
     glassCounter++;
-    water.classList.remove("water--animated-drain-full");
-    counter.classList.remove("app__counter--animated");
-    water.classList.remove("water--animated-fill");
-    water.classList.remove("water--animated-drain");
+    water.classList.remove('water--animated-drain-full');
+    counter.classList.remove('app__counter--animated');
+    water.classList.remove('water--animated-fill');
+    water.classList.remove('water--animated-drain');
     void counter.offsetWidth;
     void water.offsetWidth;
-    counter.classList.add("app__counter--animated");
-    water.classList.add("water--animated-fill");
-  } else if (operation === "remove" && glassCounter === 1) {
+    counter.classList.add('app__counter--animated');
+    water.classList.add('water--animated-fill');
+  } else if (operation === 'remove' && glassCounter === 1) {
     glassCounter--;
-    counter.classList.add("app__counter--animated");
-    water.classList.add("water--animated-drain-full");
-  } else if (operation === "remove" && glassCounter > 0) {
+    counter.classList.add('app__counter--animated');
+    water.classList.add('water--animated-drain-full');
+  } else if (operation === 'remove' && glassCounter > 0) {
     glassCounter--;
-    water.classList.remove("water--animated-drain-full");
-    counter.classList.remove("app__counter--animated");
-    water.classList.remove("water--animated-drain");
+    water.classList.remove('water--animated-drain-full');
+    counter.classList.remove('app__counter--animated');
+    water.classList.remove('water--animated-drain');
     void counter.offsetWidth;
     void water.offsetWidth;
-    counter.classList.add("app__counter--animated");
-    water.classList.add("water--animated-drain");
+    counter.classList.add('app__counter--animated');
+    water.classList.add('water--animated-drain');
   }
 
   counter.innerHTML = glassCounter;
   localStorage.setItem(key, glassCounter);
 };
 
-addGlass.addEventListener("click", () => modifyCounter("add"));
-removeGlass.addEventListener("click", () => modifyCounter("remove"));
+addGlass.addEventListener('click', () => modifyCounter('add'));
+removeGlass.addEventListener('click', () => modifyCounter('remove'));

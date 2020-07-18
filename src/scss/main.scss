@@ -161,6 +161,56 @@ html {
   font-family: 'Roboto', sans-serif;
 }
 
+.menu {
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  margin: 0px auto;
+  background: #f1f8ff;
+  box-shadow: 0px 0px 5px 10px black;
+
+  &__button {
+    @include button;
+    margin: 1em;
+    width: 85px;
+    opacity: 0;
+    animation: menu-appear 0.5s 1.6s linear forwards;
+    background: #3767ad;
+    color: white;
+    border: 3px outset #a9bcff;
+    align-self: flex-end;
+  }
+}
+
+.navigation {
+  display: none;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 99%;
+  font-size: 1.5em;
+  line-height: 45px;
+  &__item {
+    width: 100%;
+    text-align: center;
+    padding: 1em 0;
+    margin: 0;
+    margin: 0 0 0.5em;
+    &:hover {
+      background: #3767ad66;
+      box-shadow: 1px 2px 4px 2px #000000bf;
+      border-radius: 15px;
+      cursor: pointer;
+    }
+  }
+}
+
+.navigation-open {
+  display: flex;
+}
+
 .app {
   display: flex;
   flex-direction: column;
@@ -185,7 +235,7 @@ html {
     font-size: 7em;
     margin: 0;
     animation: counter-appear 0.5s linear forwards;
-    top: 650px;
+    bottom: 180px;
     &--animated {
       animation: rotate 1s;
     }
@@ -193,20 +243,12 @@ html {
 
   &__button {
     @include button;
-    &--menu {
-      position: absolute;
-      right: 10px;
-      top: 0;
-      width: 85px;
-      opacity: 0;
-      animation: menu-appear 0.5s 1.6s linear forwards;
-    }
 
-    &:nth-of-type(2) {
+    &:nth-of-type(1) {
       left: -100vw;
       animation: top-button-appear 0.5s 0.7s linear forwards;
     }
-    &:nth-of-type(3) {
+    &:nth-of-type(2) {
       left: 100vw;
       animation: bottom-button-appear 0.5s 0.9s linear forwards;
     }
@@ -215,11 +257,10 @@ html {
 
 .content-wrapper {
   width: 100%;
-  min-height: 100vh;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  margin: 0 auto;
+  margin: 5em auto;
   position: relative;
   justify-content: center;
 }
