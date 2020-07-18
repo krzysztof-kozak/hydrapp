@@ -1,0 +1,55 @@
+@mixin button {
+  font-size: 24px;
+  width: 150px;
+  padding: 4px 0;
+  border: 3px outset #fff;
+  border-bottom: 1px outset transparent;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.51);
+  margin-top: 15px;
+  position: relative;
+  outline: none;
+  &:active {
+    box-shadow: none;
+    border: 2px outset rgba(0, 0, 0, 0.74);
+  }
+  &:focus {
+    color: rgb(20, 213, 20);
+    font-weight: 900;
+  }
+}
+
+@mixin subpage {
+  margin: 3em 1em;
+  color: #fff;
+
+  &__title {
+    text-align: center;
+    line-height: 80px;
+    font-size: 3em;
+    font-weight: 500;
+    letter-spacing: 10px;
+  }
+}
+
+@mixin list {
+  padding: 0;
+  text-align: justify;
+  font-size: 1.3rem;
+  list-style: disc;
+  max-width: 70ch;
+  margin: 3em auto;
+  line-height: 30px;
+
+  &__item {
+    padding: 0.9em 0;
+    &--center {
+      text-align: center;
+      list-style-position: inside;
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}

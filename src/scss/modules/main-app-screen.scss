@@ -1,0 +1,82 @@
+@import './animations.scss';
+
+.content-wrapper {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 5em auto;
+  position: relative;
+  justify-content: center;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  &__header {
+    color: #fff;
+    opacity: 0;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 64px;
+    margin: 64px 0;
+    letter-spacing: 36px;
+    text-shadow: 2px 3px 2px #0085ffdb;
+    animation: fade-in 2s 1.5s ease-out forwards;
+  }
+
+  &__counter {
+    position: absolute;
+    font-weight: 500;
+    font-size: 7em;
+    margin: 0;
+    animation: counter-appear 0.5s linear forwards;
+    bottom: 180px;
+    &--animated {
+      animation: rotate 1s;
+    }
+  }
+
+  &__button {
+    @include button;
+
+    &:nth-of-type(1) {
+      left: -100vw;
+      animation: top-button-appear 0.5s 0.7s linear forwards;
+    }
+    &:nth-of-type(2) {
+      left: 100vw;
+      animation: bottom-button-appear 0.5s 0.9s linear forwards;
+      background: #000000c7;
+      color: #fff;
+      border: 3px outset #00000078;
+      border-bottom: 1px outset transparent;
+    }
+  }
+}
+
+.glass {
+  margin-bottom: 36px;
+  animation: glass-appear 0.5s forwards;
+  transform: translateX(-100vw);
+}
+
+.water {
+  opacity: 1;
+
+  transform-origin: center 100%;
+  &--animated-fill {
+    animation: water-fill 1.5s forwards;
+  }
+
+  &--animated-drain {
+    animation: water-drain 1.5s forwards;
+  }
+
+  &--animated-drain-full {
+    animation: water-drain-full 1.5s forwards;
+  }
+}

@@ -1,0 +1,55 @@
+@import './mixins-and-utility.scss';
+
+.menu {
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  margin: 0px auto;
+  background: #f1f8ff;
+  box-shadow: 0px 0px 5px 10px black;
+
+  &__button {
+    @include button;
+    margin: 1em;
+    width: 85px;
+    opacity: 0;
+    animation: menu-appear 0.5s 1.6s linear forwards;
+    background: #3767ad;
+    color: white;
+    border: 3px outset #a9bcff;
+    align-self: flex-end;
+  }
+}
+
+.menu-closed {
+  display: none;
+}
+
+.navigation {
+  display: none;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 99%;
+  font-size: 1.5em;
+  line-height: 45px;
+  &__item {
+    width: 100%;
+    text-align: center;
+    padding: 1em 0;
+    margin: 0;
+    margin: 0 0 0.5em;
+    &:hover {
+      background: #3767ad66;
+      box-shadow: 1px 2px 4px 2px #000000bf;
+      border-radius: 15px;
+      cursor: pointer;
+    }
+  }
+}
+
+.navigation-open {
+  display: flex;
+}
