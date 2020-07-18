@@ -13,39 +13,67 @@ const navigation = document.querySelector('.navigation--js');
 const navigationList = document.querySelectorAll('.navigation__item--js');
 const appScreen = document.querySelector('.content-wrapper--js');
 const info = document.querySelector('.info--js');
+const stats = document.querySelector('.stats--js');
 
 menu.addEventListener('click', () => navigation.classList.toggle('navigation-open'));
 
 navigationList.forEach((element) => {
   element.addEventListener('click', () => {
     navigation.classList.toggle('navigation-open');
-    if (element.getAttribute('data-link') === 'learn-more' && info.classList.contains('hidden')) {
-      appScreen.classList.toggle('hidden');
-      info.classList.toggle('hidden');
-    } else if (element.getAttribute('data-link') === 'home' && appScreen.classList.contains('hidden')) {
-      appScreen.classList.toggle('hidden');
+    if (element.getAttribute('data-link') === 'learn-more') {
+      appScreen.classList.add('hidden');
+      info.classList.remove('hidden');
+      stats.classList.add('hidden');
+    } else if (element.getAttribute('data-link') === 'stats') {
+      appScreen.classList.add('hidden');
       info.classList.add('hidden');
+      stats.classList.remove('hidden');
+      updateHistory();
+    } else if (element.getAttribute('data-link') === 'home') {
+      appScreen.classList.remove('hidden');
+      info.classList.add('hidden');
+      stats.classList.add('hidden');
     }
   });
 });
 
 const key = new Date().toISOString().slice(0, 10);
-counter.innerHTML = localStorage.getItem(key);
-
-const data = Object.entries(localStorage);
-const userHistory = data.filter((entry) => entry[0].includes('2020-'));
-const statsMarkup = document.querySelector('.list--js');
-
-userHistory.map((entry) => {
-  const listItem = document.createElement('li');
-  listItem.classList.add('list__item');
-  listItem.innerHTML = `On <span class="accent">${entry[0]}</span> you drank <span class="accent">${entry[1]}</span>glasses of water.`;
-  statsMarkup.appendChild(listItem);
-});
+console.log(Object.entries(localStorage));
 
 if (!localStorage.getItem(key)) {
   localStorage.setItem(key, 0);
 }
+
+counter.innerHTML = localStorage.getItem(key);
+
+const updateHistory = () => {
+  const data = Object.entries(localStorage);
+
+  const userHistory = data.filter((entry) => entry[0].includes('2020-')).sort(([a], [b]) => (a < b ? 1 : a > b ? -1 : 0));
+  console.log(userHistory);
+  const statsMarkup = document.querySelector('.list--js');
+  const oldList = document.querySelectorAll('.list__item--center');
+  oldList.forEach((listItem) => {
+    if (listItem.parentNode) {
+      listItem.parentNode.removeChild(listItem);
+    }
+  });
+
+  userHistory.map((entry) => {
+    const listItem = document.createElement('li');
+    listItem.classList.add('list__item', 'list__item--center');
+
+    if (parseInt(entry[1]) === 1) {
+      listItem.innerHTML = `On <span class="accent">${entry[0]}</span> you drank <span class="accent">${entry[1]}</span> glass of water.`;
+    } else if (parseInt(entry[1]) > 1) {
+      listItem.innerHTML = `On <span class="accent">${entry[0]}</span> you drank <span class="accent">${entry[1]}</span> glasses of water.`;
+    } else {
+      listItem.innerHTML = `Seems like you <span class="accent">didn't</span> drink any water on <span class="accent">${entry[0]}</span> :(`;
+    }
+
+    statsMarkup.appendChild(listItem);
+  });
+};
 
 let glassCounter = parseInt(localStorage.getItem(key));
 

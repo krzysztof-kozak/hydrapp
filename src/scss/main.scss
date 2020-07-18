@@ -261,7 +261,7 @@ html {
 
 .content-wrapper {
   width: 100%;
-  display: flex; //change to flex later...
+  display: flex;
   flex-flow: column nowrap;
   align-items: center;
   margin: 5em auto;
@@ -298,7 +298,22 @@ html {
 
   &__item {
     padding: 0.9em 0;
+    &--center {
+      text-align: center;
+      list-style-position: inside;
+    }
   }
+}
+
+.stats-wrapper {
+  background: #b7484b;
+  box-shadow: 1px 1px 4px 3px #000;
+  border-radius: 15px;
+  margin: 0 auto;
+}
+
+.accent {
+  color: #f3fca7;
 }
 
 .glass {
