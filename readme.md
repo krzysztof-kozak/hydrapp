@@ -1,4 +1,4 @@
-![cover](/public/logo.png)
+![cover](/public/logo.jpg)
 
 # Hydrapp
 
