@@ -11,23 +11,23 @@ const water = document.querySelector('.water--js');
 const menu = document.querySelector('.menu__button--js');
 const navigation = document.querySelector('.navigation--js');
 const navigationList = document.querySelectorAll('.navigation__item--js');
+const appScreen = document.querySelector('.content-wrapper--js');
+const info = document.querySelector('.info--js');
+
+menu.addEventListener('click', () => navigation.classList.toggle('navigation-open'));
 
 navigationList.forEach((element) => {
   element.addEventListener('click', () => {
     navigation.classList.toggle('navigation-open');
-    if (element.getAttribute('data-link') === 'learn-more') {
+    if (element.getAttribute('data-link') === 'learn-more' && info.classList.contains('hidden')) {
       appScreen.classList.toggle('hidden');
-      closeModal.classList.toggle('hidden');
-      infoModal.classList.toggle('hidden');
+      info.classList.toggle('hidden');
+    } else if (element.getAttribute('data-link') === 'home' && appScreen.classList.contains('hidden')) {
+      appScreen.classList.toggle('hidden');
+      info.classList.add('hidden');
     }
   });
 });
-
-menu.addEventListener('click', () => navigation.classList.toggle('navigation-open'));
-
-const appScreen = document.querySelector('.content-wrapper--js');
-const infoModal = document.querySelector('.modal--js');
-const closeModal = document.querySelector('.close-button--js');
 
 const key = new Date().toISOString().slice(0, 10);
 counter.innerHTML = localStorage.getItem(key);
