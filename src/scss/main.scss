@@ -1,8 +1,8 @@
-@import "~normalize.css";
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500;900&display=swap");
+@import '~normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;900&display=swap');
 
 @mixin button {
-  font-size: 18px;
+  font-size: 24px;
   width: 150px;
   padding: 4px 0;
   border: 3px outset #fff;
@@ -158,59 +158,14 @@
 
 html {
   background: #3767ad;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .app {
   display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
+  flex-direction: column;
+
   justify-content: center;
-  max-width: 760px;
-  position: relative;
-  margin: 0 auto;
-  min-height: 100vh;
-
-  .content-wrapper {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    max-width: 760px;
-    margin: 0 auto;
-  }
-
-  .hidden {
-    display: none;
-  }
-
-  .modal {
-    margin: 3em 1em;
-
-    &__title {
-      text-align: center;
-      line-height: 36px;
-    }
-  }
-
-  .list {
-    padding: 0;
-    margin: 0 1.5em 1em;
-    text-align: left;
-    font-size: 0.9rem;
-    list-style: none;
-
-    &__item {
-      padding: 0.5em 0;
-    }
-  }
-
-  .close-button {
-    @include button;
-    width: 80px;
-    position: absolute;
-    top: 0;
-    right: 10px;
-  }
 
   &__header {
     color: #fff;
@@ -230,7 +185,7 @@ html {
     font-size: 7em;
     margin: 0;
     animation: counter-appear 0.5s linear forwards;
-    top: 300px;
+    top: 650px;
     &--animated {
       animation: rotate 1s;
     }
@@ -241,10 +196,10 @@ html {
     &--menu {
       position: absolute;
       right: 10px;
+      top: 0;
       width: 85px;
-      font-size: 24px;
       opacity: 0;
-      animation: menu-appear 2s 1.6s linear forwards;
+      animation: menu-appear 0.5s 1.6s linear forwards;
     }
 
     &:nth-of-type(2) {
@@ -256,6 +211,56 @@ html {
       animation: bottom-button-appear 0.5s 0.9s linear forwards;
     }
   }
+}
+
+.content-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 0 auto;
+  position: relative;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  margin: 3em 1em;
+  color: #fff;
+
+  &__title {
+    text-align: center;
+    line-height: 80px;
+    font-size: 3em;
+    font-weight: 500;
+    letter-spacing: 10px;
+  }
+}
+
+.list {
+  padding: 0;
+  text-align: justify;
+  font-size: 1.3rem;
+  list-style: disc;
+  max-width: 70ch;
+  margin: 3em auto;
+  line-height: 30px;
+
+  &__item {
+    padding: 0.9em 0;
+  }
+}
+
+.close-button {
+  @include button;
+  width: 80px;
+  position: absolute;
+  top: 0;
+  right: 10px;
 }
 
 .glass {
