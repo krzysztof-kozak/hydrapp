@@ -2,14 +2,14 @@
   grid-row-start: 2;
   grid-row-end: 3;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   display: flex;
   align-items: baseline;
   justify-content: center;
   @media (max-width: 425px) {
     flex-flow: column wrap;
     align-items: center;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   &__description {
