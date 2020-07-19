@@ -46,6 +46,7 @@
   line-height: 30px;
   &--center {
     display: inline-block;
+    text-align: center;
   }
   @media (max-width: 425px) {
     margin: 3em 16px;
