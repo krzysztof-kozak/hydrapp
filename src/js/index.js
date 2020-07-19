@@ -15,6 +15,15 @@ const appScreen = document.querySelector('.content-wrapper--js');
 const info = document.querySelector('.info--js');
 const stats = document.querySelector('.stats--js');
 
+const key = new Date().toISOString().slice(0, 10);
+console.log(Object.entries(localStorage));
+
+if (!localStorage.getItem(key)) {
+  localStorage.setItem(key, 0);
+}
+
+counter.innerHTML = localStorage.getItem(key);
+
 menu.addEventListener('click', () => navigation.classList.toggle('navigation-open'));
 
 navigationList.forEach((element) => {
@@ -36,15 +45,6 @@ navigationList.forEach((element) => {
     }
   });
 });
-
-const key = new Date().toISOString().slice(0, 10);
-console.log(Object.entries(localStorage));
-
-if (!localStorage.getItem(key)) {
-  localStorage.setItem(key, 0);
-}
-
-counter.innerHTML = localStorage.getItem(key);
 
 const updateHistory = () => {
   const data = Object.entries(localStorage);
@@ -75,12 +75,6 @@ const updateHistory = () => {
   });
 };
 
-let glassCounter = parseInt(localStorage.getItem(key));
-
-if (glassCounter === 0) {
-  water.style.opacity = 0;
-}
-
 const modifyCounter = (operation) => {
   if (operation === 'add') {
     glassCounter++;
@@ -110,6 +104,12 @@ const modifyCounter = (operation) => {
   counter.innerHTML = glassCounter;
   localStorage.setItem(key, glassCounter);
 };
+
+let glassCounter = parseInt(localStorage.getItem(key));
+
+if (glassCounter === 0) {
+  water.style.opacity = 0;
+}
 
 addGlass.addEventListener('click', () => modifyCounter('add'));
 removeGlass.addEventListener('click', () => modifyCounter('remove'));

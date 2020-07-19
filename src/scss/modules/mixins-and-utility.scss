@@ -44,6 +44,9 @@
   max-width: 70ch;
   margin: 3em auto;
   line-height: 30px;
+  &--center {
+    display: inline-block;
+  }
   @media (max-width: 425px) {
     margin: 3em 16px;
     font-size: 1.2rem;
@@ -52,7 +55,6 @@
   &__item {
     padding: 0.9em 0;
     &--center {
-      text-align: center;
       list-style-position: inside;
     }
   }
