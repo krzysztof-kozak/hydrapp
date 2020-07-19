@@ -16,8 +16,10 @@
 .app {
   display: flex;
   flex-direction: column;
-
   justify-content: center;
+  @media (min-width: 768px) {
+    margin-top: 10em;
+  }
 
   &__header {
     color: #fff;
