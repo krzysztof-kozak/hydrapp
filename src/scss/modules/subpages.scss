@@ -6,6 +6,12 @@
   @include subpage;
 }
 
+.pwa {
+  @media (max-width: 425px) {
+    font-size: 0.8rem;
+  }
+}
+
 .list {
   @include list;
 }
@@ -14,6 +20,9 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  @media (max-width: 425px) {
+    margin: 0 16px;
+  }
 
   &__title {
     font-size: 1.6em;
@@ -37,12 +46,14 @@
   padding: 2em;
   transform: scale(0.8);
   box-shadow: 5px 6px 7px 3px #000;
-  flex-shrink: 2;
+  flex-shrink: 1;
   width: 100%;
+  max-width: 700px;
 }
 
 .subpage-wrapper {
   @include subpage-wrapper;
+  max-width: 1200px;
 }
 
 .stats-wrapper {

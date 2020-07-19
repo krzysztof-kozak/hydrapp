@@ -14,6 +14,7 @@ const navigationList = document.querySelectorAll('.navigation__item--js');
 const appScreen = document.querySelector('.content-wrapper--js');
 const info = document.querySelector('.info--js');
 const stats = document.querySelector('.stats--js');
+const pwa = document.querySelector('.pwa--js');
 
 const key = new Date().toISOString().slice(0, 10);
 console.log(Object.entries(localStorage));
@@ -30,18 +31,26 @@ navigationList.forEach((element) => {
   element.addEventListener('click', () => {
     navigation.classList.toggle('navigation-open');
     if (element.getAttribute('data-link') === 'learn-more') {
-      appScreen.classList.add('hidden');
       info.classList.remove('hidden');
+      appScreen.classList.add('hidden');
       stats.classList.add('hidden');
+      pwa.classList.add('hidden');
     } else if (element.getAttribute('data-link') === 'stats') {
+      stats.classList.remove('hidden');
       appScreen.classList.add('hidden');
       info.classList.add('hidden');
-      stats.classList.remove('hidden');
+      pwa.classList.add('hidden');
       updateHistory();
+    } else if (element.getAttribute('data-link') === 'pwa') {
+      pwa.classList.remove('hidden');
+      appScreen.classList.add('hidden');
+      info.classList.add('hidden');
+      stats.classList.add('hidden');
     } else if (element.getAttribute('data-link') === 'home') {
       appScreen.classList.remove('hidden');
       info.classList.add('hidden');
       stats.classList.add('hidden');
+      pwa.classList.add('hidden');
     }
   });
 });
