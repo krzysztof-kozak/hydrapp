@@ -1,7 +1,7 @@
 @import './mixins-and-utility.scss';
 
 .menu {
-  min-height: 100px;
+  min-height: 65px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +16,7 @@
 
   &__button {
     @include button;
-    margin: 1em;
+    margin: 0.5em;
     width: 85px;
     opacity: 0;
     animation: menu-appear 0.5s 1.6s linear forwards;
