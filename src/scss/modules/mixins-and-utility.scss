@@ -29,6 +29,10 @@
     font-size: 3em;
     font-weight: 500;
     letter-spacing: 10px;
+    @media (max-width: 425px) {
+      font-size: 2.5em;
+      letter-spacing: 5px;
+    }
   }
 }
 
@@ -40,6 +44,10 @@
   max-width: 70ch;
   margin: 3em auto;
   line-height: 30px;
+  @media (max-width: 425px) {
+    margin: 3em 16px;
+    font-size: 1.2rem;
+  }
 
   &__item {
     padding: 0.9em 0;

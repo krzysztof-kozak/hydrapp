@@ -12,7 +12,7 @@ A simple web app for tracking your hydration. Go to [https://krzysztof-kozak.git
 4. Run the app in the developement mode for dev preview.
 
 ```
-git clone https://github.com/krzysztof-kozak/reddit-browser.git
+git clone https://github.com/krzysztof-kozak/hydrapp.git
 
 cd hydrapp/
 
