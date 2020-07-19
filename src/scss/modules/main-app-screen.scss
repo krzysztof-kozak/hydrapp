@@ -5,7 +5,7 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  margin: 5em auto;
+  margin: 1em auto;
   position: relative;
   justify-content: center;
   @media (max-width: 425px) {
@@ -18,7 +18,7 @@
   flex-direction: column;
   justify-content: center;
   @media (min-width: 768px) {
-    margin-top: 5em;
+    margin-top: 1em;
   }
 
   &__header {
@@ -27,7 +27,7 @@
     font-weight: 500;
     font-size: 36px;
     line-height: 64px;
-    margin: 64px 0;
+    margin: 8px 0 36px;
     letter-spacing: 36px;
     text-shadow: 2px 3px 2px #0085ffdb;
     animation: fade-in 2s 1.5s ease-out forwards;
