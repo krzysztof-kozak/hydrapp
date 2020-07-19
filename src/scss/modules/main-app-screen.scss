@@ -8,6 +8,9 @@
   margin: 5em auto;
   position: relative;
   justify-content: center;
+  @media (max-width: 4250px) {
+    margin: 0 auto;
+  }
 }
 
 .app {
@@ -26,6 +29,10 @@
     letter-spacing: 36px;
     text-shadow: 2px 3px 2px #0085ffdb;
     animation: fade-in 2s 1.5s ease-out forwards;
+    @media (max-width: 4250px) {
+      font-size: 36px;
+      margin: 36px 0;
+    }
   }
 
   &__counter {
@@ -35,6 +42,10 @@
     margin: 0;
     animation: counter-appear 0.5s linear forwards;
     bottom: 180px;
+    @media (max-width: 4250px) {
+      font-size: 5em;
+      bottom: 165px;
+    }
     &--animated {
       animation: rotate 1s;
     }
@@ -62,6 +73,11 @@
   margin-bottom: 36px;
   animation: glass-appear 0.5s forwards;
   transform: translateX(-100vw);
+
+  @media (max-width: 4250px) {
+    width: 50%;
+    height: 175px;
+  }
 }
 
 .water {
