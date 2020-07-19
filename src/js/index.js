@@ -32,6 +32,17 @@ navigationList.forEach((element) => {
 const key = new Date().toISOString().slice(0, 10);
 counter.innerHTML = localStorage.getItem(key);
 
+const data = Object.entries(localStorage);
+const userHistory = data.filter((entry) => entry[0].includes('2020-'));
+const statsMarkup = document.querySelector('.list--js');
+
+userHistory.map((entry) => {
+  const listItem = document.createElement('li');
+  listItem.classList.add('list__item');
+  listItem.innerHTML = `On <span class="accent">${entry[0]}</span> you drank <span class="accent">${entry[1]}</span>glasses of water.`;
+  statsMarkup.appendChild(listItem);
+});
+
 if (!localStorage.getItem(key)) {
   localStorage.setItem(key, 0);
 }
@@ -39,7 +50,6 @@ if (!localStorage.getItem(key)) {
 let glassCounter = parseInt(localStorage.getItem(key));
 
 if (glassCounter === 0) {
-  console.log(localStorage.getItem(key));
   water.style.opacity = 0;
 }
 

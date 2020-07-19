@@ -261,7 +261,7 @@ html {
 
 .content-wrapper {
   width: 100%;
-  display: flex;
+  display: flex; //change to flex later...
   flex-flow: column nowrap;
   align-items: center;
   margin: 5em auto;
@@ -273,7 +273,8 @@ html {
   display: none;
 }
 
-.info {
+.info,
+.stats {
   margin: 3em 1em;
   color: #fff;
 
