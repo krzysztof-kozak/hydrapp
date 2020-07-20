@@ -16,7 +16,7 @@ const info = document.querySelector('.info--js');
 const stats = document.querySelector('.stats--js');
 const pwa = document.querySelector('.pwa--js');
 
-const key = new Date().toISOString().slice(0, 10);
+const key = new Date().toLocaleString().slice(0, 9);
 
 if (!localStorage.getItem(key)) {
   localStorage.setItem(key, 0);
@@ -57,7 +57,7 @@ navigationList.forEach((element) => {
 const updateHistory = () => {
   const data = Object.entries(localStorage);
 
-  const userHistory = data.filter((entry) => entry[0].includes('2020-')).sort(([a], [b]) => (a < b ? 1 : a > b ? -1 : 0));
+  const userHistory = data.filter((entry) => entry[0].includes('2020')).sort(([a], [b]) => (a < b ? 1 : a > b ? -1 : 0));
   const statsMarkup = document.querySelector('.list--js');
   const oldList = document.querySelectorAll('.list__item--center');
   oldList.forEach((listItem) => {
