@@ -16,7 +16,7 @@ const info = document.querySelector('.info--js');
 const stats = document.querySelector('.stats--js');
 const pwa = document.querySelector('.pwa--js');
 
-const key = new Date().toLocaleString().slice(0, 9);
+const key = new Date().toLocaleString().slice(0, 10);
 
 if (!localStorage.getItem(key)) {
   localStorage.setItem(key, 0);
